@@ -17,7 +17,7 @@ class HistorialPreview extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+          margin: EdgeInsets.symmetric(vertical: 10),
           child: Text(
             'Historial',
             style: Theme.of(context).textTheme.headlineSmall,
@@ -38,9 +38,13 @@ class HistorialPreview extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-          width: 287,
-          child: Divider(),
+        Container(
+          width: double.infinity,
+          padding: EdgeInsets.symmetric(horizontal: 40),
+          child: SizedBox(
+            width: 287,
+            child: Divider(),
+          ),
         ),
       ],
     ),

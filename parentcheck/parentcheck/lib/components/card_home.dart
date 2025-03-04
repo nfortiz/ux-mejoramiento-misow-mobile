@@ -5,8 +5,9 @@ class CardHome extends StatelessWidget {
 
   final String title;
   final String subtitle;
+  final String imagePath;
 
-  const CardHome({super.key, required this.title, required this.subtitle});
+  const CardHome({super.key, required this.title, required this.subtitle, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +21,7 @@ class CardHome extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: 344,
+              width: 294,
               height: 80,
               child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -43,9 +44,13 @@ class CardHome extends StatelessWidget {
                   ),
                 ),
               ],
-            ),
-            
-          ),            
+            ),            
+          ),    
+          SizedBox(
+            width: 50,
+            height: 80,
+            child: Image(image: AssetImage(this.imagePath)),
+          )        
           ],
         ),
       ),

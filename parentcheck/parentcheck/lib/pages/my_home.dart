@@ -24,6 +24,8 @@ class _MyHomePageState extends State<MyHomePage> {
         child: HomeContent(),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: Colors.white,
+        
         type: BottomNavigationBarType.fixed,
         currentIndex: _currentIndex,
         onTap: (index) {
@@ -67,6 +69,7 @@ class HomeContent extends StatelessWidget {
           ),
         ),
         CardExample(),
+        const SizedBox(height: 10),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 70),
           padding: EdgeInsets.symmetric(vertical: 10),
@@ -75,9 +78,9 @@ class HomeContent extends StatelessWidget {
             style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
-        const SizedBox(height: 10),
-        CardHome(title: 'Dependientes', subtitle: 'Ver dependientes'),
-        CardHome(title: 'Medicamentos', subtitle: 'Ver medicamentos'),
+        CardHome(title: 'Dependientes', subtitle: 'Ver dependientes', imagePath: 'card_home_bg.png'),
+        const SizedBox(height: 5),
+        CardHome(title: 'Medicamentos', subtitle: 'Ver medicamentos', imagePath: 'medical_care.png',),
       ],
     );
   }
