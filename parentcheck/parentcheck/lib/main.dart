@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:parentcheck/components/historial_preview.dart';
 import 'package:parentcheck/components/my_app_bar.dart';
+import 'package:parentcheck/pages/login.dart';
 import 'package:parentcheck/pages/my_home.dart';
 
 void main() {
@@ -28,7 +29,14 @@ class MyApp extends StatelessWidget {
         primaryColorLight: Color(0xffBFECFF),
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.white70),
       ),
-      home: const MyHomePage(title: 'ParentCheck'),
+      initialRoute: '/',
+      routes: {
+        // When navigating to the "/" route, build the FirstScreen widget.
+        // '/': (context) => const LoginPage(),
+        // When navigating to the "/second" route, build the SecondScreen widget.
+        '/home': (context) => const MyHomePage(title: 'ParentCheck'),
+      },
+      home: const LoginPage(),
     );
   }
 }
