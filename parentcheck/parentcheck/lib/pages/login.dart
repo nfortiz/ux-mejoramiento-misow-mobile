@@ -1,7 +1,6 @@
 // create stateless wiget for login page
 import 'package:flutter/material.dart';
 import 'package:parentcheck/components/my_app_bar.dart';
-import 'package:parentcheck/main.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});

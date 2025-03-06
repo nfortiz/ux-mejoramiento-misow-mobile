@@ -21,7 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: CustomAppBar(isHome: true),
       body: Container(
-        child: HomeContent(),
+        child: HistorialContent(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.white,
@@ -85,9 +85,6 @@ class HomeContent extends StatelessWidget {
     );
   }
 }
-
-
-
 class CardExample extends StatelessWidget {
   const CardExample({super.key});
 
@@ -137,6 +134,124 @@ class CardExample extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+
+class HistorialContent extends StatelessWidget {
+
+  const HistorialContent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: <Widget>[
+        HistorialPreview(),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 70),
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: Text(
+            'Febrero 15',
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+        ),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 70),
+          padding: EdgeInsets.symmetric(vertical: 10),
+          child: CardHistorial(
+            title: 'Loratadina 100mg',
+            subtitle: '1 dosis cada 6 horas',
+            time: '02:00 PM',
+            imagePath: 'card_home_bg.png',
+          ),
+        ),
+
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 70),
+          child: CardHistorial(
+            title: 'Loratadina 100mg',
+            subtitle: '1 dosis cada 6 horas',
+            time: '02:00 PM',
+            imagePath: 'card_home_bg.png',
+          ),
+        ),
+        
+      ],
+    );
+  }
+}
+
+
+class CardHistorial extends StatelessWidget {
+
+  final String title;
+  final String subtitle;
+  final String time;
+  final String imagePath;
+
+  const CardHistorial({super.key, required this.title, required this.subtitle, required this.time, required this.imagePath});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.white,
+      child: Column(
+        children: [
+          ListTile(
+            leading: Icon(Icons.supervised_user_circle_outlined),
+            title: Text('Camilo', style: TextStyle(fontSize: 16, color: Color(0xff171C1F), fontWeight: FontWeight.bold),),
+            trailing: Icon(Icons.edit),
+          ),
+          ListTile(
+            title: Text('Loratadina, 10 mg', style: TextStyle(fontSize: 16, color: Color(0xff171C1F), fontWeight: FontWeight.bold),),
+            subtitle: Text('1 dosis cada 6 horas'),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Row(
+                children: [
+                  TextButton.icon(
+                    style: TextButton.styleFrom(
+                      textStyle: TextStyle(
+                        color: Color(0xff444748)
+                      ),
+                    ),
+                    icon: Icon(Icons.notifications_outlined, color: Theme.of(context).primaryColorDark),
+                    label: Text(
+                      '02:00 PM', 
+                      style: TextStyle(
+                        color: Theme.of(context).primaryColorDark, 
+                        fontWeight: FontWeight.w500
+                      ),
+                    ),
+                    onPressed: () {
+                    },
+                  ) 
+                ],
+              ),
+              Row(
+                children: [
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                    padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(100), // <-- Radius
+                    ),
+                    backgroundColor: Theme.of(context).primaryColorDark,
+                     ),
+                    onPressed: () {}, 
+                    child: Text("Registrar", style: TextStyle(color: Colors.white),)
+                  ),
+                  const SizedBox(width: 10),
+                ],
+              ),
+            ],
+          ),
+          const SizedBox(height: 10),
+        ],
       ),
     );
   }

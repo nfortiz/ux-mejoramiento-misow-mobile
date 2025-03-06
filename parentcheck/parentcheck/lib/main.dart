@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:parentcheck/components/historial_preview.dart';
-import 'package:parentcheck/components/my_app_bar.dart';
 import 'package:parentcheck/pages/login.dart';
 import 'package:parentcheck/pages/my_home.dart';
 
