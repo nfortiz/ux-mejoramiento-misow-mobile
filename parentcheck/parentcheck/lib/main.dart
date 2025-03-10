@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parentcheck/pages/add_alarm.dart';
 import 'package:parentcheck/pages/login.dart';
 import 'package:parentcheck/pages/my_home.dart';
 
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
       routes: {
         // '/': (context) => const LoginPage(),
         '/home': (context) => const MyHomePage(title: 'ParentCheck'),
+        '/add-alarm': (context) => const AddAlarmPage(),
       },
       home: const LoginPage(),
     );

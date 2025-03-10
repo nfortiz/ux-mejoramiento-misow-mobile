@@ -1,5 +1,7 @@
 
 import 'package:flutter/material.dart';
+import 'package:parentcheck/components/button_with_icon.dart';
+import 'package:parentcheck/components/card_alarm.dart';
 import 'package:parentcheck/components/card_historial_home.dart';
 import 'package:parentcheck/components/card_home.dart';
 import 'package:parentcheck/components/card_next_dosis.dart';
@@ -16,11 +18,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _currentIndex = 0;
+  int _currentIndex = 1;
 
   final List<Widget> _screens = [
     AlarmContent(),
-    HomeContent(),
+    HomeContent(onPressed: () {
+
+    },),
     HistorialContent(),
   ];
 
@@ -62,7 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
 class AlarmContent extends StatelessWidget {
 
-
   const AlarmContent({super.key});
 
   @override
@@ -71,7 +74,7 @@ class AlarmContent extends StatelessWidget {
       children: <Widget>[
         Container(
           height: 71,
-          margin: EdgeInsets.symmetric(horizontal: 70, vertical: 10),
+          margin: EdgeInsets.symmetric(horizontal: 50, vertical: 10),
           padding: EdgeInsets.symmetric(vertical: 10),
           child: Text(
             'Alarmas',
@@ -79,85 +82,57 @@ class AlarmContent extends StatelessWidget {
           ),
         ),
         Container(
-          height: 148,
-          width: 344,
           margin: EdgeInsets.symmetric(horizontal: 50),
-          child: CardAlarm(title: 'Loratadina 100mg', subtitle: '1 dosis cada 6 horas'),
-        )
-        
+          child:         Column(
+            children: <Widget>[
+              CardAlarm(
+                title: 'Loratadina 100mg',
+                subtitle: '1 dosis cada 6 horas',
+              ),
+              const SizedBox(height: 10),
+              CardAlarm(
+                title: 'Acetaminofen 500mg',
+                subtitle: '1 dosis cada 8 horas',
+              ),
+              const SizedBox(height: 100),
+              ButtonWithIcon(
+                  text: 'Crear alarma',
+                  icon: Icons.add,
+                  color: Theme.of(context).primaryColorDark,
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/add-alarm');
+                  },
+              ),
+              const SizedBox(height: 10),
+              ButtonWithIcon(
+                  text: 'Escanear prescripción',
+                  icon: Icons.document_scanner_outlined,
+                  color: Theme.of(context).primaryColorDark,
+                  onPressed: () {},
+              ),
+            ],
+          ),          
+        )        
       ],
     );
   }
 }
 
-
-class CardAlarm extends StatelessWidget {
-
-  final String title;
-  final String subtitle;
-
-  const CardAlarm({super.key, required this.title, required this.subtitle});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      color: Colors.white,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          const SizedBox(height: 1),
-          ListTile(
-            title: Text('Loratadina, 10 mg', style: TextStyle(fontSize: 16, color: Color(0xff171C1F), fontWeight: FontWeight.w500),),
-            subtitle: Text('1 dosis cada 6 horas', style: TextStyle(fontSize: 14, color: Color(0xff40484C)),),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                  shape: RoundedRectangleBorder(
-                    side: BorderSide(
-                      color: Color(0xff70787C),
-                    ),
-                    borderRadius: BorderRadius.circular(100), // <-- Radius
-                  ),
-                  backgroundColor: Colors.white,
-                ),
-                onPressed: () {},
-                child: Text('Editar', style: TextStyle(color: Theme.of(context).primaryColorDark)),
-              ),
-              const SizedBox(width: 10),
-              ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                padding: EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(100), // <-- Radius
-                ),
-                backgroundColor: Theme.of(context).primaryColorDark,
-                  ),
-                onPressed: () {},
-                child:
-                  const Text('Ver', style: TextStyle(color: Colors.white)),
-              ),
-              const SizedBox(width: 15),
-            ],              
-          ),
-          const SizedBox(height: 10),
-        ],
-      ),
-    );
-  }
-}
-
 class HomeContent extends StatelessWidget {
-  const HomeContent({super.key});
+
+  final GestureTapCallback onPressed;
+
+  const HomeContent({super.key, this.onPressed = defaultOnPressed});
+  
+  static void defaultOnPressed() {
+    // Default action when no onPressed is provided
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: <Widget>[
-        HistorialPreview(),
+        HistorialPreview(onPressed: onPressed,),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 70),
           padding: EdgeInsets.symmetric(vertical: 10),
@@ -179,6 +154,7 @@ class HomeContent extends StatelessWidget {
         CardHome(title: 'Dependientes', subtitle: 'Ver dependientes', imagePath: 'card_home_bg.png'),
         const SizedBox(height: 5),
         CardHome(title: 'Medicamentos', subtitle: 'Ver medicamentos', imagePath: 'medical_care.png',),
+
       ],
     );
   }
