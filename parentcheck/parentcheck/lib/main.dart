@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:parentcheck/pages/add_alarm.dart';
 import 'package:parentcheck/pages/login.dart';
 import 'package:parentcheck/pages/my_home.dart';
 
@@ -29,10 +30,9 @@ class MyApp extends StatelessWidget {
       ),
       initialRoute: '/',
       routes: {
-        // When navigating to the "/" route, build the FirstScreen widget.
         // '/': (context) => const LoginPage(),
-        // When navigating to the "/second" route, build the SecondScreen widget.
         '/home': (context) => const MyHomePage(title: 'ParentCheck'),
+        '/add-alarm': (context) => const AddAlarmPage(),
       },
       home: const LoginPage(),
     );
