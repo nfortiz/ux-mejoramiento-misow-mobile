@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:parentcheck/pages/add_alarm.dart';
+import 'package:parentcheck/pages/alarm_summary.dart';
 import 'package:parentcheck/pages/login.dart';
 import 'package:parentcheck/pages/my_home.dart';
+import 'package:parentcheck/pages/scan_prescription.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,6 +35,8 @@ class MyApp extends StatelessWidget {
         // '/': (context) => const LoginPage(),
         '/home': (context) => const MyHomePage(title: 'ParentCheck'),
         '/add-alarm': (context) => const AddAlarmPage(),
+        '/alarm-summary': (context) => const AlarmSummaryPage(),
+        '/scan-prescription': (context) => const ScanPrescriptionPage(),
       },
       home: const LoginPage(),
     );
