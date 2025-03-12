@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:parentcheck/components/button_with_icon.dart';
 import 'package:parentcheck/components/dropdown_button_custom.dart';
 
-class AddAlarmPage extends StatefulWidget {
-  const AddAlarmPage({super.key});
+class CreateAlarmPage extends StatefulWidget {
+  const CreateAlarmPage({super.key});
 
   @override
-  State<AddAlarmPage> createState() => _AddAlarmPageState();
+  State<CreateAlarmPage> createState() => _CreateAlarmPageState();
 }
 
-class _AddAlarmPageState extends State<AddAlarmPage> {
+class _CreateAlarmPageState extends State<CreateAlarmPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -194,7 +194,7 @@ class _AddAlarmPageState extends State<AddAlarmPage> {
                     icon: Icons.add,
                     color: Theme.of(context).primaryColorDark,
                     onPressed: () {
-                      Navigator.pushNamed(context, '/alarm-summary');
+                      Navigator.pushNamed(context, '/alarm/summary');
                     },
                   ),
                 ),

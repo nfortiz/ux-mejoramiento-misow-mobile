@@ -100,7 +100,7 @@ class AlarmContent extends StatelessWidget {
                 icon: Icons.document_scanner_outlined,
                 color: Theme.of(context).primaryColorDark,
                 onPressed: () {
-                  Navigator.pushNamed(context, '/scan-prescription');
+                  Navigator.pushNamed(context, '/prescription/scan');
                 },
               ),
             ],
