@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:parentcheck/components/button_with_icon.dart';
-import 'package:parentcheck/components/dropdown_button_custom.dart';
+import 'package:parentcheck/components/parentcheck_button.dart';
+import 'package:parentcheck/components/parentcheck_dropdown.dart';
+import 'package:parentcheck/components/parentcheck_app_bar.dart';
 import 'package:parentcheck/components/prescription/prescription_list_item.dart';
 
 class PrescriptionSummaryPage extends StatefulWidget {
@@ -15,15 +16,12 @@ class _PrescriptionSummaryPageState extends State<PrescriptionSummaryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ParentCheck'),
-        backgroundColor: Theme.of(context).primaryColorDark,
-      ),
+      appBar: ParentCheckAppBar(avatar: true, back: true),
       body: ListView(
-        padding: EdgeInsets.only(left: 24, right: 24, top: 24),
+        padding: EdgeInsets.all(24),
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.only(bottom: 48),
+            padding: EdgeInsets.only(bottom: 24),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -48,7 +46,7 @@ class _PrescriptionSummaryPageState extends State<PrescriptionSummaryPage> {
                   Row(
                     children: [
                       Expanded(
-                        child: DropdownButtonCustom(
+                        child: ParentCheckDropdown(
                           placeholder: Text("Seleccionar dependiente"),
                           children: [
                             MenuItemButton(child: Text("John doe")),
@@ -91,18 +89,18 @@ class _PrescriptionSummaryPageState extends State<PrescriptionSummaryPage> {
               ),
             ],
           ),
-          Expanded(
-            child: ButtonWithIcon(
-              text: 'Crear alarmas',
-              icon: Icons.alarm,
-              color: Theme.of(context).primaryColorDark,
-              onPressed: () {
-                Navigator.pushNamed(context, '/home');
-              },
-            ),
-          ),
         ],
       ),
+      persistentFooterButtons: [
+        ParentCheckButton(
+          text: 'Crear alarmas',
+          icon: Icons.alarm,
+          color: Theme.of(context).primaryColorDark,
+          onPressed: () {
+            Navigator.pushNamed(context, '/home');
+          },
+        ),
+      ],
     );
   }
 }

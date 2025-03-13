@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 
-class DropdownButtonCustom extends StatefulWidget {
+class ParentCheckDropdown extends StatefulWidget {
   final Text placeholder;
   final List<MenuItemButton> children;
 
-  const DropdownButtonCustom({
+  const ParentCheckDropdown({
     super.key,
     required this.placeholder,
     required this.children,
   });
 
   @override
-  State<DropdownButtonCustom> createState() =>
-      _DropdownButtonCustomState();
+  State<ParentCheckDropdown> createState() =>
+      _ParentCheckDropdownState();
 }
 
-class _DropdownButtonCustomState extends State<DropdownButtonCustom> {
+class _ParentCheckDropdownState extends State<ParentCheckDropdown> {
   final FocusNode _buttonFocusNode = FocusNode(debugLabel: 'Menu Button');
   late Widget label = widget.placeholder;
 
@@ -57,7 +57,7 @@ class _DropdownButtonCustomState extends State<DropdownButtonCustom> {
               controller.open();
             }
           },
-          label: this.label,
+          label: label,
           icon: Icon(
             controller.isOpen ? Icons.arrow_drop_up : Icons.arrow_drop_down,
             color: Theme.of(context).primaryColor,

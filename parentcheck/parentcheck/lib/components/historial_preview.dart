@@ -15,8 +15,6 @@ class HistorialPreview extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 118,
-      width: 393,
-      padding: EdgeInsets.symmetric(horizontal: 70),
       decoration: BoxDecoration(
         color: Colors.white70,
       ),

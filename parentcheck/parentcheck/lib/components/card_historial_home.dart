@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 class CardHistorial extends StatelessWidget {
 
   final String title;
