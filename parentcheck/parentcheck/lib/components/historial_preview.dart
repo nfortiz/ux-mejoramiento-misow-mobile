@@ -13,11 +13,8 @@ class HistorialPreview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 118,
-      decoration: BoxDecoration(
-        color: Colors.white70,
-      ),
       child:  Column(
       mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
