@@ -23,9 +23,11 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 1.  **Descargar el proyecto**:
     * Clona este repositorio en tu máquina local.
-2.  **Ingresa a la carpeta **
+2.  **Ingresa a la carpeta y abre vs code desde la terminal**
+   * `cd ux-mejoramiento-misow-mobile/parentcheck/parentcheck`
+   * `vscode .`
 2.  **Obtener las dependencias**:
-    * Abre una terminal en la raíz del proyecto y ejecuta el siguiente comando:
+    * En la terminal en la raíz del proyecto ejecuta el siguiente comando:
 
     ```bash
     flutter pub get
@@ -38,22 +40,3 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
     ```bash
     flutter run
     ```
-
-## Información Adicional
-
-* Puedes encontrar documentación adicional sobre Flutter en el sitio web oficial de Flutter: [flutter.dev](https://flutter.dev/).
-* Si tienes algún problema, consulta la sección de preguntas frecuentes de Flutter o busca soluciones en Stack Overflow.
-
-## Contribución
-
-Si deseas contribuir a este proyecto, por favor sigue estos pasos:
-
-1.  Haz un fork del repositorio.
-2.  Crea una nueva rama para tu contribución.
-3.  Realiza tus cambios y commitealos.
-4.  Sube tus cambios a tu repositorio.
-5.  Abre un pull request en este repositorio.
-
-## Licencia
-
-Este proyecto está bajo la licencia \[Indica aquí la licencia del proyecto].
