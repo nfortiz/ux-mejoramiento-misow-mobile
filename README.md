@@ -14,6 +14,7 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
     * Instala la extensión de Flutter para VS Code:
         * Abre VS Code y ve a la vista de extensiones (Ctrl+Shift+X o Cmd+Shift+X).
         * Busca "Flutter" e instala la extensión oficial de Flutter.
+        * O ingresa a https://marketplace.visualstudio.com/items?itemName=Dart-Code.flutter
 * **Android Studio (para emulador de Android)**:
     * [Descarga Android Studio](https://developer.android.com/studio)
     * Durante la instalación, asegúrate de que estén seleccionadas las opciones para instalar el SDK de Android y el emulador de Android.
